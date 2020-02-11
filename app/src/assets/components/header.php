@@ -1,3 +1,4 @@
+<?php
 <!-- Ícones feitos por <a href="https://www.flaticon.com/br/autores/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/br/" title="Flaticon"> www.flaticon.com</a> -->
 
 <!DOCTYPE html>
@@ -21,3 +22,4 @@
             <li><a href="">Usuário</a></li>
         </nav>
     </header>
+?>
