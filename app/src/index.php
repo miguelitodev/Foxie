@@ -17,10 +17,10 @@
             <img src="./assets/img/geral/origami.png" />
         </div>
         <div class="campos">
-            <form action="../lib/login-verify.php" method="POST">
-                <input class="input" type="email" name="email" placeholder="E-mail" />
-                <input class="input" type="password" name="pass" placeholder="Senha" />
-                <input class="btn" type="submit" value="ENTRAR" />
+            <form action="" method="POST">
+                <input class="input" type="email" placeholder="E-mail" />
+                <input class="input" type="password" placeholder="Senha" />
+                <input class="btn" type="button" value="ENTRAR" />
             </form>
         </div>
     </div>
