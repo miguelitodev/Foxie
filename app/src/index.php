@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/assets/css/style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./assets/img/geral/origami.png" type="image/x-icon">
-    <title>Tela Login</title>
+    <title>Login</title>
 </head>
 
 <body>

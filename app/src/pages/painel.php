@@ -1,2 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
 
-    <div class="card"></div>
+    <?php require_once '../assets/includes/head.php'; ?>
+
+</head>
+<body>
+
+    <footer class="footer">
+
+        <?php require_once '../assets/includes/footer.php'; ?>
+
+    </footer>
+</body>
+
+</html>
