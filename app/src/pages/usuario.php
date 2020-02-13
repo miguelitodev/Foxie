@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 
-    <?php require_once '../assets/includes/header.php'; ?>
+    <?php require_once '../assets/includes/head.php'; ?>
 
 </head>
 <body>
