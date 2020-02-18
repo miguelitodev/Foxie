@@ -1,5 +1,6 @@
 <?php
 
+
 class User {
     private $name;
     private $email;
@@ -10,8 +11,18 @@ class User {
 
     }
 
-    public function list() {        # R
+    public static function list() {        # R
+        $query = "SELECT U.idUsuario, U.nomeUsuario, U.emailUsuario, N.nivel
+                  FROM tbusuario AS U
+                  INNER JOIN tbnivelacesso AS N
+                  ON U.idNivelAcesso = N.idNivelAcesso";
         
+        $DB = Conn::getConn();
+
+        $stmt = $DB->query($query);
+        $result = $stmt->fetchAll();
+        
+        return $result;
     }
 
     public function update($User) { # U

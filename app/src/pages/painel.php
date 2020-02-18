@@ -1,3 +1,11 @@
+<?php 
+require_once '../classes/User.php'; 
+require_once '../classes/Conn.php';
+
+$User = new User();
+$Userlist = $User->list();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -34,30 +42,16 @@
                         <th>Editar</th>
                         <th>Apagar</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Miguel Riquelme</td>
-                        <td>miguel@gmail.com</td>
-                        <td>Funcionário</td>
-                        <td><a href=""><i class="fas fa-edit edit"></a></td>
-                        <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Gabriel Teodoro</td>
-                        <td>gabriel@gmail.com</td>
-                        <td>Gerente</td>
-                        <td><a href=""><i class="fas fa-edit edit"></a></td>
-                        <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Tabata Fernanda</td>
-                        <td>tabata@gmail.com</td>
-                        <td>Gerente</td>
-                        <td><a href=""><i class="fas fa-edit edit"></a></td>
-                        <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
-                    </tr>
+                    <?php foreach($Userlist as $User): ?>
+                        <tr>
+                            <td><?php echo $User['idUsuario'] ?></td>
+                            <td><?php echo $User['nomeUsuario'] ?></td>
+                            <td><?php echo $User['emailUsuario']?></td>
+                            <td><?php echo $User['nivel'] ?></td>
+                            <td><a href=""><i class="fas fa-edit edit"></a></td>
+                            <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>
