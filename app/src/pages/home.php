@@ -8,12 +8,11 @@
 <body>
 
     <header>
-        <a href="#">
+        <a href="home.php">
             <img src="../assets/img/geral/origami.png"/>
         </a>
         <nav>
-            <li><a href="#">Painel</a></li>
-            <li><a href="#">Usuário</a></li>
+            <li><a href="painel.php">Painel</a></li>
         </nav>
     </header>
 

@@ -93,6 +93,9 @@ header li:last-child{
     align-items: center;
 
     padding: 20px;
+
+    -webkit-box-shadow: 5px 10px 27px -5px #000000; 
+    box-shadow: 5px 10px 27px -5px #000000;
 }
 
 @media(max-width:700px){
@@ -166,4 +169,105 @@ footer{
 
 footer div{
     margin-top: 15px;
+}
+
+/* PAINEL */
+
+.card-painel{
+    margin: 15% auto;
+    
+    border-radius: 5px;
+    width: 90%;
+    height: auto;
+    background-color: white;
+    
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    -webkit-box-shadow: 5px 10px 27px -5px #000000; 
+    box-shadow: 5px 10px 27px -5px #000000;
+
+}
+
+.center-content-painel{
+    
+}
+
+.foto-painel{
+    padding-left: 45%;
+}
+
+.titulo{
+    text-align: left;
+    padding: 10% 0 0 10%;
+}
+
+.titulo h4{
+    font-weight: bold;
+    color: #5f5c59;
+    font-size: xx-large;
+    margin-bottom: 10px;
+}
+
+.titulo p{
+    opacity: 0.7;
+}
+
+hr{
+    width: 15%;
+    color: #e57e25;
+}
+
+.centralizar{
+    padding-left: 45%;
+}
+
+.tabela{
+    margin-top: 10%;
+}
+
+table {
+    width: 100%;
+}
+
+.tabela tr{
+    text-align: center;
+    width: 25%;
+}
+
+.tabela th{
+    padding: 20px;
+}
+
+.tabela td{
+    padding: 15px;
+}
+
+.delete{
+    color: #ff0000;
+}
+
+.edit{
+    color: rgba(241, 157, 0, 0.959);
+}
+
+.nUser{
+    margin-top: 20px;
+    border: none;
+    padding: 15px;
+    background-color: rgb(109, 155, 16);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.9;
+    
+}
+
+.nUser:hover{
+    opacity: 1;
+    cursor: pointer;
 }
