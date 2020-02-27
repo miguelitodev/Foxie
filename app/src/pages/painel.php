@@ -32,28 +32,31 @@ $Userlist = $User->list();
                 <p>Aqui você terá acesso a todos os usuários cadastrados.</p>
                 <button class="nUser">Novo usuário</button>
             </div>
-            <div class="tabela">
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Nivel de acesso</th>
-                        <th>Editar</th>
-                        <th>Apagar</th>
-                    </tr>
-                    <?php foreach($Userlist as $User): ?>
+            <?php if(count($Userlist)): ?>
+                <div class="tabela">
+                    <table>
                         <tr>
-                            <td><?php echo $User['idUsuario'] ?></td>
-                            <td><?php echo $User['nomeUsuario'] ?></td>
-                            <td><?php echo $User['emailUsuario']?></td>
-                            <td><?php echo $User['nivel'] ?></td>
-                            <td><a href=""><i class="fas fa-edit edit"></a></td>
-                            <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Nivel de acesso</th>
+                            <th>Editar</th>
+                            <th>Apagar</th>
                         </tr>
-                    <?php endforeach; ?>
-                </table>
-            </div>
+                        <?php foreach($Userlist as $User): ?>
+                            <tr>
+                                <td><?php echo $User['idUsuario'] ?></td>
+                                <td><?php echo $User['nomeUsuario'] ?></td>
+                                <td><?php echo $User['emailUsuario']?></td>
+                                <td><?php echo $User['nivel'] ?></td>
+                                <td><a href=""><i class="fas fa-edit edit"></a></td>
+                                <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+            <?php else: echo "<pre>Não há usuários cadastrados.</pre>";?>
+            <?php endif; ?>
         </div>
 
         <footer class="footer">
