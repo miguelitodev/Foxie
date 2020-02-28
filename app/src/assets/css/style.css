@@ -177,7 +177,7 @@ footer div{
     margin: 15% auto;
     
     border-radius: 5px;
-    width: 90%;
+    width: 80%;
     height: auto;
     background-color: white;
     
@@ -269,5 +269,39 @@ table {
 
 .nUser:hover{
     opacity: 1;
+    cursor: pointer;
+}
+
+.form{
+    width: 80%;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.form input {
+    width: 25%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #eee;
+    margin: 20px;
+}
+
+.form select{
+    width: 25%;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #eee;
+    border: none;
+    border-radius: 10px;
+    color: #5f5c59;
+
+}
+
+#buttonEnviar {
+    background-color: #e57e25;
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
 }

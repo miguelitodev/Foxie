@@ -32,6 +32,22 @@ $Userlist = $User->list();
                 <p>Aqui você terá acesso a todos os usuários cadastrados.</p>
                 <button class="nUser">Novo usuário</button>
             </div>
+
+            <div class="form">
+                <form action="">
+                    <input type="text" name="" id="" placeholder="Nome">
+                    <input type="text" name="" id="" placeholder="Email">
+                    <select id="nivel">
+                        <option value="">Funcionário</option>
+                        <option value="">Administrador</option>
+                    </select>
+                    <input type="password" name="" id="" placeholder="Senha">
+                    <input type="password" name="" id="" placeholder="Confirmar Senha">
+
+                    <input id="buttonEnviar" type="button" value="ENVIAR">
+                </form>
+            </div>
+
             <?php if(count($Userlist)): ?>
                 <div class="tabela">
                     <table>
