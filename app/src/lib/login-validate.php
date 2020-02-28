@@ -5,7 +5,7 @@ session_start();
 require_once '../classes/Conn.php';
 
 
-$DB = Conn::getConn();
+$DB = DB::getConn();
 
 $query = "SELECT emailUsuario, senhaUsuario 
           FROM tbusuario 
