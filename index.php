@@ -2,4 +2,4 @@
 
 # REDIRECT
 
-header('Location: app/src/login.php');
+header('Location: app/src/pages/login.php');
