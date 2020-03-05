@@ -1,6 +1,6 @@
 <?php 
 require_once '../classes/User.php'; 
-require_once '../classes/Conn.php';
+require_once '../classes/DB.php';
 
 $User = new User();
 $Userlist = $User->list();

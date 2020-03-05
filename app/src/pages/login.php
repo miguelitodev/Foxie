@@ -4,23 +4,20 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../src/assets/css/style.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="./assets/img/geral/origami.png" type="image/x-icon">
+    <?php require_once '../assets/includes/head.php'; ?>
     <title>Login</title>
 </head>
 
 <body>
     <div class="card">
         <div class="foto">
-            <img src="./assets/img/geral/origami.png" />
+            <img src="../assets/img/geral/origami.png" />
         </div>
         <div class="campos">
 
             <?php if(isset($_GET['invalid'])) echo "<p style='text-align:center;color: red;'> Login inválido! </p>" ?>
 
-            <form action="lib/login-validate.php" method="POST">
+            <form action="../lib/login-validate.php" method="POST">
                 <input class="input" name="email" type="email" placeholder="E-mail" require/>
                 <input class="input" name="pass" type="password" placeholder="Senha" require/>
                 <input class="btn" type="submit" value="ENTRAR" />

@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once '../classes/Conn.php';
+require_once '../classes/DB.php';
 
 
 $DB = DB::getConn();
