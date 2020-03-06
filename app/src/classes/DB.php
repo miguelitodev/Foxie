@@ -4,7 +4,6 @@ require '../config.php';
 
 class DB
 {
-
     public static function getConn()
     {
         try {

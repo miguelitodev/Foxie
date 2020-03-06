@@ -10,7 +10,7 @@ class User
 
     public function insert($User)
     { # C
-        $query = "INSERT INTO tbusuario(nomeUsuario, emailUsuario, senhaUsuario, idNivelAcesso)
+        $query = "INSERT INTO tbUsuario(nomeUsuario, emailUsuario, senhaUsuario, idNivelAcesso)
                   VALUES ('$User->name'
                         , '$User->email'
                         , '$User->senhaUsuario'
@@ -20,9 +20,9 @@ class User
 
     public static function list()
     { # R
-        $query = "SELECT U.idUsuario, U.nomeUsuario, U.emailUsuario, N.nivel
-                  FROM tbusuario AS U
-                  INNER JOIN tbnivelacesso AS N
+        $query = "SELECT U.idUsuario, U.nomeUsuario, U.emailUsuario, U.senhaUsuario, N.descNivelAcesso
+                  FROM tbUsuario AS U
+                  INNER JOIN tbNivelAcesso AS N
                   ON U.idNivelAcesso = N.idNivelAcesso";
 
         $Conn = DB::getConn();
@@ -35,7 +35,7 @@ class User
 
     public function update($User)
     { # U
-        $query = "UPDATE tbusuario
+        $query = "UPDATE tbUsuario
                   SET nomeUsuario = '$User->name',
                       emailUsuario = '$User->email',
                       senhaUsuario = '$User->pass',

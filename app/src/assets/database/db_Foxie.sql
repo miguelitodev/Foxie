@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `tbnivelacesso`
 --
 
-CREATE TABLE `tbnivelacesso` (
+CREATE TABLE `tbNivelAcesso` (
   `idNivelAcesso` int(11) NOT NULL,
-  `nivel` varchar(100) NOT NULL
+  `descNivelAcesso` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbnivelacesso`
 --
 
-INSERT INTO `tbnivelacesso` (`idNivelAcesso`, `nivel`) VALUES
-(2, 'Gerente'),
-(3, 'Funcionário');
+INSERT INTO `tbNivelAcesso` (`idNivelAcesso`, `descNivelAcesso`) VALUES
+(1, 'Usuário'),
+(2, 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -47,7 +47,7 @@ INSERT INTO `tbnivelacesso` (`idNivelAcesso`, `nivel`) VALUES
 -- Estrutura da tabela `tbusuario`
 --
 
-CREATE TABLE `tbusuario` (
+CREATE TABLE `tbUsuario` (
   `idUsuario` int(11) NOT NULL,
   `nomeUsuario` varchar(255) NOT NULL,
   `emailUsuario` varchar(255) NOT NULL,
@@ -59,9 +59,9 @@ CREATE TABLE `tbusuario` (
 -- Extraindo dados da tabela `tbusuario`
 --
 
-INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `idNivelAcesso`) VALUES
-(3, 'Miguel Riquelme', 'miguel@gmail.com', '12345678', 3),
-(4, 'Gabriel Teodoro', 'gabriel@gmail.com', '12345678', 2);
+INSERT INTO `tbUsuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `idNivelAcesso`) VALUES
+(1, 'Gabriel Teodoro', 'gabriel@gmail.com', '123', 2),
+(2, 'Miguel Riquelme', 'miguel@gmail.com', '123', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -70,13 +70,13 @@ INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuar
 --
 -- Índices para tabela `tbnivelacesso`
 --
-ALTER TABLE `tbnivelacesso`
+ALTER TABLE `tbNivelAcesso`
   ADD PRIMARY KEY (`idNivelAcesso`);
 
 --
 -- Índices para tabela `tbusuario`
 --
-ALTER TABLE `tbusuario`
+ALTER TABLE `tbUsuario`
   ADD PRIMARY KEY (`idUsuario`),
   ADD KEY `idNivelAcesso` (`idNivelAcesso`);
 
@@ -87,14 +87,14 @@ ALTER TABLE `tbusuario`
 --
 -- AUTO_INCREMENT de tabela `tbnivelacesso`
 --
-ALTER TABLE `tbnivelacesso`
-  MODIFY `idNivelAcesso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `tbNivelAcesso`
+  MODIFY `idNivelAcesso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
-ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `tbUsuario`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para despejos de tabelas
@@ -103,8 +103,8 @@ ALTER TABLE `tbusuario`
 --
 -- Limitadores para a tabela `tbusuario`
 --
-ALTER TABLE `tbusuario`
-  ADD CONSTRAINT `tbusuario_ibfk_1` FOREIGN KEY (`idNivelAcesso`) REFERENCES `tbnivelacesso` (`idNivelAcesso`);
+ALTER TABLE `tbUsuario`
+  ADD CONSTRAINT `tbUsuario_ibfk_1` FOREIGN KEY (`idNivelAcesso`) REFERENCES `tbNivelAcesso` (`idNivelAcesso`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
