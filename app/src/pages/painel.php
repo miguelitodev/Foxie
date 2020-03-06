@@ -39,14 +39,14 @@ $Userlist = $User->list();
         </div>
 
         <div class="form">
-            <form action="">
-                <input type="text" id="nome" placeholder="Nome">
-                <input type="text" id="email" placeholder="E-mail">
-                <select id="nivel">
-                    <option value="1">Funcionário</option>
-                    <option value="2">Administrador</option>
+            <form>
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="text" id="email" placeholder="E-mail" required>
+                <select id="nivel" required>
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuário</option>
                 </select>
-                <input type="password" id="senha" placeholder="Senha">
+                <input type="password" id="senha" placeholder="Senha" required>
                 <input type="password" id="confirmar-senha" placeholder="Confirmar senha">
 
                 <input id="buttonEnviar" type="button" value="SALVAR">
@@ -83,6 +83,25 @@ $Userlist = $User->list();
     <footer class="footer">
         <?php require_once '../assets/includes/footer.php'; ?>
     </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('#buttonEnviar').on('click', () => {
+                $.ajax({
+                    type: 'POST',
+                    url: 'inserir-usuario.php',
+                    data: {
+                        nome: $('#nome').val(),
+                        email: $('#email').val(),
+                        senha: $('#senha').val(),
+                        nivel: $('#nivel').val()
+                    }
+                })
+            })
+        })
+    </script>
+
 </body>
 
 </html>
