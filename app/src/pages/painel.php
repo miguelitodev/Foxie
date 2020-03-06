@@ -43,8 +43,9 @@ $Userlist = $User->list();
                 <input type="text" id="nome" placeholder="Nome" required>
                 <input type="text" id="email" placeholder="E-mail" required>
                 <select id="nivel" required>
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuário</option>
+                    <option>Nível de Acesso</option>
+                    <option value="1">Usuário</option>
+                    <option value="2">Administrador</option>
                 </select>
                 <input type="password" id="senha" placeholder="Senha" required>
                 <input type="password" id="confirmar-senha" placeholder="Confirmar senha">

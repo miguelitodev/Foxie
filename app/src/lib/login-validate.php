@@ -5,7 +5,7 @@ session_start();
 if(!(isset($_SESSION['user_id'])))
     echo "<script>window.location.href = '../pages/login.php?invalid=true'</script>";
 
-if (strcmp(basename($_SERVER['PHP_SELF']), 'painel.php') == 0 && $_SESSION['user_access_level'] < 2)
+if (!strcmp(basename($_SERVER['PHP_SELF']), 'painel.php') && $_SESSION['user_access_level'] < 2)
     header('Location: home.php?no-permission');
 
 if (isset($_GET['no-permission']))
