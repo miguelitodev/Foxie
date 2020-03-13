@@ -64,7 +64,7 @@ class User
             $Conn = DB::getConn();
             $stmt = $Conn->exec($query);
         } catch (PDOException $e) {
-            echo $e->getMessage;
+            echo $e->getMessage();
         }
 
     }
@@ -87,7 +87,7 @@ class User
         $Conn = DB::getConn();
 
         $stmt = $Conn->query($query);
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         return $result;
     }
@@ -108,7 +108,7 @@ class User
             if ($stmt->rowCount())
                 return 0;
         } catch (PDOException $e) {
-            echo $e->getMessage;
+            echo $e->getMessage();
         }
     }
 

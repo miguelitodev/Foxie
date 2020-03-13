@@ -1,12 +1,7 @@
 <?php
 
 require_once '../lib/login-validate.php';
-require_once '../classes/User.php';
-require_once '../classes/DB.php';
 
-
-$User = new User();
-$Userlist = $User->list();
 ?>
 
 <!DOCTYPE html>
@@ -54,55 +49,96 @@ $Userlist = $User->list();
             </form>
         </div>
 
-        <?php if (count($Userlist)) : ?>
-            <div class="tabela">
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Nível de acesso</th>
-                        <th>Editar</th>
-                        <th>Apagar</th>
-                    </tr>
-                    <?php foreach ($Userlist as $User) : ?>
-                        <tr>
-                            <td><?php echo $User['idUsuario'] ?></td>
-                            <td><?php echo $User['nomeUsuario'] ?></td>
-                            <td><?php echo $User['emailUsuario'] ?></td>
-                            <td><?php echo $User['descNivelAcesso'] ?></td>
-                            <td><a href=""><i class="fas fa-edit edit"></a></td>
-                            <td><a href=""><i class="far fa-trash-alt delete"></i></a></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-            </div>
-        <?php else : echo "<pre>Não há usuários cadastrados.</pre>"; ?>
-        <?php endif; ?>
-    </div>
+        <div class="tabela">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Nível de acesso</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </table>
+        </div>
 
-    <footer class="footer">
-        <?php require_once '../assets/includes/footer.php'; ?>
-    </footer>
+        <script src="../assets/js/jquery.min.js"></script>
 
-    <script src="../assets/js/jquery.min.js"></script>
-    <script>
-        $(document).ready(() => {
-            $('#buttonEnviar').on('click', () => {
-                $.ajax({
-                    type: 'POST',
-                    url: 'inserir-usuario.php',
-                    data: {
-                        nome: $('#nome').val(),
-                        email: $('#email').val(),
-                        senha: $('#senha').val(),
-                        nivel: $('#nivel').val()
+        <script>
+            window.onload = listUsers()
+
+            function listUsers() {
+
+                var xhttp = new XMLHttpRequest()
+
+                xhttp.onreadystatechange = () => {
+
+                    if (xhttp.readyState == 4) {
+
+                        var users = JSON.parse(xhttp.responseText)
+
+                        var tableDone = '<div class=\'tabela\'>' +
+                                        '<table>' +
+                                        '<tr>' +
+                                        '<th>ID</th>' + 
+                                        '<th>Nome</th>' +
+                                        '<th>E-mail</th>' +
+                                        '<th>Nível de Acesso</th>' +
+                                        '<th>Editar</th>' +
+                                        '<th>Apagar</th>'
+
+                        for (let user in users) {
+                            tableDone += '<tr>' +
+                                '<td>' + users[user]['idUsuario'] + '</td>' +
+                                '<td>' + users[user]['nomeUsuario'] + '</td>' +
+                                '<td>' + users[user]['emailUsuario'] + '</td>' +
+                                '<td>' + users[user]['descNivelAcesso'] + '</td>' +
+                                '<td><a href=\'#\'><i class=\'fas fa-edit edit\'></i></a></td>' +
+                                '<td><a href=\'#\'><i class=\'fas fa-trash-alt delete\'></i></a></td>' +
+                                '</tr>'
+                        }
+                        tableDone += '</table></div>'
+
                     }
-                })
-            })
-        })
-    </script>
 
+
+                    document.querySelector('.tabela').innerHTML = tableDone
+                }
+
+                xhttp.open('GET', '../lib/listar-usuario.php')
+                xhttp.send()
+            }
+
+            listUsers()
+
+
+            function insertUser() {
+                let xhttp = new XMLHttpRequest()
+                xhttp.open('POST', '../lib/inserir-usuario.php')
+
+                let nome = document.getElementById('nome')
+                let email = document.getElementById('email')
+                let senha = document.getElementById('senha')
+                let nivel = $('#nivel').val()
+
+                xhttp.send(`nome=${nome}&email=${email}&senha=${senha}&nivel=${nivel}`)
+
+                xhttp.onreadystatechange = () => {
+                    if (this.readyState == 4)
+                        alert('Usuário cadastrado com sucesso!')
+
+                    listUsers()
+                }
+            }
+
+            let buttonEnviar = document.getElementById('buttonEnviar')
+            buttonEnviar.addEventListener('click', insertUser())
+        </script>
+
+
+        <footer class="footer">
+            <?php require_once '../assets/includes/footer.php'; ?>
+        </footer>
 </body>
 
 </html>
